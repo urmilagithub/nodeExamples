@@ -1,0 +1,16 @@
+ <script>
+var wsPort = 80;
+var ws = new WebSocket("ws://" + window.location.host + ":" +  wsPort);
+ws.onopen = function()
+{  
+   console.log('Handshake successfully established.\n Sending some data...');
+   ws.send("Hello!");
+} 
+ws.onmessage = function(e)
+{  
+   console.log("Server message:" + e.data);
+   console.log("Event Info:" );
+   console.log(e);
+   ws.close();
+} 
+</script>
